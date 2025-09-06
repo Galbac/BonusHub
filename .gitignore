@@ -114,8 +114,8 @@ bot_media_cache/
 # ===================================================================
 # ⛔ Alembic (SQLAlchemy)
 # ===================================================================
-alembic/versions/.cache/
-alembic/env.pyc
+migration/versions/.cache/
+migration/env.pyc
 test.db
 test_*.db
 

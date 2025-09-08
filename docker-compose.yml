@@ -1,0 +1,69 @@
+services:
+  web:
+    build: .
+    container_name: bonus_web
+    command: >
+      sh -c "alembic upgrade head &&
+      uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"
+    volumes:
+      - ./app:/app/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_HOST=db
+    env_file:
+      - .env
+    depends_on:
+      - db
+    restart: always
+    networks:
+      - bonus_network
+
+
+  db:
+    image: postgres:17-alpine
+    container_name: bonus_db
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    env_file:
+      - .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: always
+    networks:
+      - bonus_network
+
+
+  bot:
+    build: .
+    container_name: bonus_bot
+    command: python -m app.main
+    environment:
+      - DB_HOST=db
+    env_file:
+      - .env
+    depends_on:
+      - db
+    restart: always
+    networks:
+      - bonus_network
+
+  adminer:
+    image: adminer
+    container_name: bonus_adminer
+    ports:
+      - "8080:8080"
+    restart: always
+    networks:
+      - bonus_network
+
+volumes:
+  postgres_data:
+
+networks:
+  bonus_network:
+    driver: bridge

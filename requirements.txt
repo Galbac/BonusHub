@@ -2,7 +2,6 @@ aiogram==3.22.0
 alembic==1.16.5
 asyncpg==0.30.0
 backports.tarfile==1.2.0
-celery==5.5.3
 ecdsa==0.19.1
 fastapi==0.116.1
 httptools==0.6.4
@@ -14,10 +13,8 @@ jwt==1.4.0
 passlib==1.7.4
 pip-chill==1.0.3
 pre-commit==3.8.0
-psycopg==3.2.9
 pydantic-settings==2.10.1
 python-multipart==0.0.20
-redis==5.2.1
 rsa==4.9.1
 tomli==2.0.1
 uvicorn==0.35.0
@@ -25,3 +22,6 @@ uvloop==0.21.0
 watchfiles==1.1.0
 websockets==15.0.1
 python-jose==3.5.0
+psycopg==3.2.9
+psycopg-binary==3.2.10
+psycopg2-binary==2.9.10

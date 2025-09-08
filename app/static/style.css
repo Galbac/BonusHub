@@ -1,0 +1,30 @@
+body {
+  background: radial-gradient(circle at top left, #0f0c29, #302b63, #24243e);
+  min-height: 100vh;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.neon-text {
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff, 0 0 20px #0ff, 0 0 40px #0ff;
+}
+
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.btn-neon {
+  background: linear-gradient(90deg, #ff00cc, #3333ff);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  transition: all 0.3s;
+}
+
+.btn-neon:hover {
+  box-shadow: 0 0 10px #ff00cc, 0 0 20px #3333ff, 0 0 40px #ff00cc;
+  transform: scale(1.05);
+}
